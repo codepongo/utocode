@@ -15,9 +15,10 @@ HWND findDesktopIconWnd()
 int main(int argc, char** argv[])
 {
 	HWND cmd = GetConsoleWindow();
-	printf("Console:0x%x\n", cmd);
+	LONG lStyle = ::GetWindowLong(cmd, GWL_STYLE);
+	::SetWindowLong(cmd, GWL_STYLE, lStyle & ~WS_SYSMENU);
+	::ShowWindow(cmd, SW_SHOW);
 	HWND parent = findDesktopIconWnd();
-	printf("Desktop:0x%x\n", parent);
 
 	if (NULL == SetParent(cmd, parent))
 	{
