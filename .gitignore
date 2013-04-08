@@ -13,3 +13,6 @@
 *.la
 *.a
 
+#python
+
+*.pyc
