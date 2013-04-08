@@ -5,7 +5,7 @@ it is only a storage some demos and documents are in it.
 
 
 
-* windows - the source can only in the windows os.
+* windows - the source can be used only in the windows os.
 
 	+ ondesktop.cpp 
 		set console windows in the desktop, 
