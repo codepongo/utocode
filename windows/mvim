@@ -1,0 +1,2 @@
+#/bin/sh
+/c/Program\ Files/vim/vim73/gvim.exe $1 &
