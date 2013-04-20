@@ -17,3 +17,12 @@ it is only a storage some demos and documents are in it.
 		such as msys, cygwin.
 * cublog 
 	a python client script for [chinaunix blog](http://blog.chinaunix.net)
+* 3rdparty - the thrid party that i watch.
+
+	+ rapyd-tk
+		http://www.bitflipper.ca/rapyd/index.html
+		Rapyd-Tk ( Rapid python development with Tkinter) - is 
+		an open-source development environment specifically tailored 
+		for developing applications 
+		using Python, Tkinter and, optionally, Pmw. 
+		
