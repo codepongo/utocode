@@ -15,6 +15,9 @@ it is only a storage some demos and documents are in it.
 		a shell script. 
 		it quick launchs to gvim.exe for unix shell environment in windows 
 		such as msys, cygwin.
+	
+	+ printPredefinedMacros.c
+		print predefined macro __FILE__ __LINE__ __FUNCTION__
 * cublog 
 	a python client script for [chinaunix blog](http://blog.chinaunix.net)
 * 3rdparty - the thrid party that i watch.

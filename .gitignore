@@ -14,5 +14,7 @@
 *.a
 
 #python
-
 *.pyc
+
+#vim
+*.swp
