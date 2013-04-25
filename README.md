@@ -25,7 +25,8 @@ it is only a storage some demos and documents are in it.
 
 * cublog 
 	a python client script for [chinaunix blog](http://blog.chinaunix.net)
-* 3rdparty - the thrid party that i watch.
+
+* 3rdpart - the third library that i watch.
 
 	+ rapyd-tk
 		http://www.bitflipper.ca/rapyd/index.html
