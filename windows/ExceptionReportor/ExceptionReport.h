@@ -5,13 +5,16 @@
 #pragma once
 #pragma message("Using include dir's ExceptionReport")
 
-#ifdef cplusplus
+#ifdef __cplusplus
+extern "C" void installExceptionFilter();
+extern "C" void uninstallExceptionFilter();
 class ExceptionFilter
 {
-	Exception()	{
+public:
+	ExceptionFilter()	{
 		installExceptionFilter();
 	};
-	~Exception() {
+	~ExceptionFilter() {
 		uninstallExceptionFilter();
 	};
 };
