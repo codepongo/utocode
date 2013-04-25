@@ -18,9 +18,18 @@ it is only a storage some demos and documents are in it.
 	
 	+ printPredefinedMacros.c
 		print predefined macro __FILE__ __LINE__ __FUNCTION__
+
+	+ netcard.c
+		start or stop network adapter(net card) in windows
+
+	+ ExceptionReport
+		Catch excepption and make a minidump file, when execute in windows os crashes.
+
+
 * cublog 
 	a python client script for [chinaunix blog](http://blog.chinaunix.net)
-* 3rdparty - the thrid party that i watch.
+
+* 3rdpart - the third library that i watch.
 
 	+ rapyd-tk
 		http://www.bitflipper.ca/rapyd/index.html
