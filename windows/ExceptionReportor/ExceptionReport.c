@@ -83,6 +83,7 @@ void uninstallExceptionFilter()
 
 LONG WINAPI UnhandledExceptionFilterWithDump(PEXCEPTION_POINTERS pExceptionInfo)
 {
+
 	HMODULE hDll = LoadLibraryA("dbghelp.dll");
 	if (!hDll)
 	{
@@ -109,12 +110,12 @@ LONG WINAPI UnhandledExceptionFilterWithDump(PEXCEPTION_POINTERS pExceptionInfo)
 
 	//write dump file in here!
 
-	s_hDumpFile = CreateFile(s_dmp, GENERIC_WRITE, FILE_SHARE_READ,
+	s_hDumpFile = CreateFileA(s_dmp, GENERIC_WRITE, FILE_SHARE_READ,
 								0, CREATE_ALWAYS, FILE_FLAG_WRITE_THROUGH,	0);
 
 	if (s_hDumpFile == INVALID_HANDLE_VALUE)
 	{
-		s_hDumpFile = CreateFile(s_dmp, GENERIC_WRITE, FILE_SHARE_READ,
+		s_hDumpFile = CreateFileA(s_dmp, GENERIC_WRITE, FILE_SHARE_READ,
 									0, CREATE_ALWAYS, FILE_FLAG_WRITE_THROUGH,	0);
 	}
 
