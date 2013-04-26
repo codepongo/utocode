@@ -1,0 +1,125 @@
+Rapyd-Tk version history.
+
+Version 0.1.2   2010-08-01
+    Added form export/import.
+    We wern't checking for missing widget definitions at load time. Fixed.
+    Tkinter.Text PgUp/PgDn are not always symertical. Added code to handle
+        PgUp/PgDn ourself and now it *is* symetrical.
+    Text editor rememberance stack now remembers column position as well
+        as line number.
+    Following a search we no longer select the found text.
+    In the config file, Tkinter.Listbox xscrollcommand and yscrollcommand
+        options are now set to be of type "command". Previously they were,
+        erroniously, set to be of type "text".
+    Added "Tkinter.wantobjects = False" to put Tkinter functionality back
+        to what it was previously.
+    Python is now reporting errors somewhat differently. Added code to
+        rpErrorHandler to play nicely with this new format.
+    Added a check to disallow exporting the main form of the main module.
+
+Version 0.1.1   2007-0108
+    In config file, fixed typo in pyclass default specification of Pmw
+        ScrolledCanvas.
+    If the user set the "pyclass" option of a widget whose donor module had
+        been imported using the "import <module>" form then we were, 
+        erroniously, prepending the module name to the user supplied pyclass
+        value. Fixed.
+    Revised help messages to reference the new 'rapyd@bitflipper' email
+        address and the 'www.bitflipper.ca/rapyd' web site.
+    Frame-insert help page was missing diagrams, now added.
+
+Version 0.1.0   2006-12-17
+    Bumped the version up to 0.1.x both because Rapyd has been in use long
+        enough that some signs of stability are seen and because the 
+        "pyclass" feature is not downward compatible.
+    Added the "pyclass" option to all widgets and updated the help messages.
+    At new-binding time if there was already a handler with a longer name
+        which matched the name of the new handler (eg existing handler
+        "yada_Button_D" vs new handler "yada_Button") then we were failing
+        to create the new handler because we, erroniously, thought a handler
+        of the required name already existed. Fixed.
+    Fixed a number of nasty bugs which could happen when frames were created
+        or deleted.
+    Added "Frame insert" feature to layout area right-click popup.
+    Up until now we have, erroniously, been allowing users to insert spaces
+        in systext. Fixed.
+    Revised the line-outdent logic. Previously we would not outdent if we were
+        at the left of the line, which was technically correct in being the
+        exact inverse of line-indent. Now if at the left of the line we delete
+        spaces to the right which seems a bit more intuitive.
+
+Version 0.0.7   2006-05-13
+    Code-editor 'outdent-block' action was refusing to outdent empty lines.
+        Fixed.
+
+Version 0.0.6   2006-05-12
+    From rpOptions.py removed the legacy "font_Assist" and made the 
+        "dim_Assist" into a pro-forma dummy.
+    All use of Pmw widgets removed. Rapyd-Tk is no longer dependent on Pmw, 
+        although it continues to support Pmw for user projects.
+    Added missing help topic 'bindassist.badcomponent'.
+    Code editor schemas wern't properly handling the font specification. Fixed.
+    Changed the default code editor front to ('Terminal','12'). Was previously
+        an X font string.
+    The previous demonstration project "RapydDemo.rpj" used Pmw widgets. Replaced
+        it with a simple calculator which does not depend on Pmw.
+    Revised the default font specifications to be in points, not pixels
+    For the zip-compressed version we now put windows-style CRLF line endings
+        on all the text files. Was just LF.
+    Some version of pythonn (eg 2.2 under windows) do not report, in the 
+        traceback list, the name of the file in which a syntax-class error was
+        detected. We now handle this case gracefully, although we can not
+        display the offending line since we don't know the file.
+    Some versions of windows get upset if, when spawning a program, you pass ''
+        as the first argument. When running a project we now pass a dummy first
+        argument to keep windows happy.
+
+Version 0.0.5   2006-05-06
+    Revised 'rapyd.template' so there is no try/accept for modules other than
+        the main module.
+    At project-run time when we are about to swtich to the current-working-
+        directory to the project directory we check for a project directory of
+        '' (meaning the current directory) and in that case do nothing.   
+    Revised 'rapyd.template' to add code that adds the current directory to
+        sys.path to so we can find other modules of the project.    
+    At new-module-create and at module-rename times we were checking in the 
+        current directory for existing (non-project) modules of the same name
+        when we should have been checking in the project directory. Fixed.    
+    For the Tkinter "text" widget, "wrap" option, for no-wrap the config file
+        specified None (the Python object) when it should have specified the
+        text string "none". Fixed.        
+
+Version 0.0.4   2006-05-04
+    At startup we were neglecting to close the template file. Fixed.
+    At project-run time we now switch the current-working-directory to be the
+        projects directory, to facilitate import of project modules.
+    More revisions to the run-time error handler; there were a couple of
+        cases it wasn't handling properly. There are an annoyingly large number
+        of cases to be handled, at last count 23, all of which have to be tested
+        when a change is made to the handler.
+
+Version 0.0.3   2006-04-29
+    Many changes to the run-time error handler module rpErrorHandler. It
+        wasn't properly handling errors when the project was in a different
+        directory than rapyd and it wasn't properly dealing with some errors
+        detected during the nominal syntax error check.
+    Made some cosmetic corrections to the RapydDemo project.
+    Removed spurious debug message from font assist dialog.
+    Removed unused routine "CenterOnWidget" from RapydDemo project.    
+    In README.TXT added reference to the "<project-name>.dec" decoder file
+        needed by rpErrorHandler in standalone mode.
+    Fixed a bug which, if there were one or more bindings on the outer-most
+        frame of a form, generated corrupt code to create the bindings.
+    The event wizard was improperly retaining detail (key or button) information
+        when an event type was changed from key to some other type or from 
+        button to some other type. Fixed.
+
+Version 0.0.2   2006-04-25
+    Fixed a problem in the directory-select routine (used at new project time)
+        which was apparently a result of a change in Tkinter.
+
+Version 0.0.1   2006-04-24
+    Added shebang line at top of rapyd.py
+
+Version 0.0.0
+    Initial alpha release
