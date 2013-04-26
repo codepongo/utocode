@@ -14,7 +14,6 @@
 *.a
 
 #python
-
 *.pyc
 
 #vim

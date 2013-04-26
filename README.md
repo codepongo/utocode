@@ -15,6 +15,9 @@ it is only a storage some demos and documents are in it.
 		a shell script. 
 		it quick launchs to gvim.exe for unix shell environment in windows 
 		such as msys, cygwin.
+	
+	+ printPredefinedMacros.c
+		print predefined macro __FILE__ __LINE__ __FUNCTION__
 
 	+ netcard.c
 		start or stop network adapter(net card) in windows
