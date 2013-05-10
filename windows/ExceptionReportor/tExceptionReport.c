@@ -1,9 +1,11 @@
 /*
- * Name:	exception_t.c
+ * Name:	tExceptionReport.c
  * Descr:	use catch program exception with my own function
- * Usage:	>cl exception_t.c
+ * Usage:	
+ *		>nmake tExceptionReporter.exe -f makefile.mk
+ *		>tExceptionReporter.exe
  * Author:	zuohaitao
- * Date:	2010-02-13
+ * Date:	2013-04-25
  */
 #include <windows.h>
 #include "ExceptionReport.h"

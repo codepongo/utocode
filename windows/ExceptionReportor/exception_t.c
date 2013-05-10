@@ -1,7 +1,9 @@
 /*
  * Name:	exception_t.c
  * Descr:	use catch program exception with my own function
- * Usage:	>cl exception_t.c
+ * Usage:	
+ *		>cl exception_t.c
+ *		>nmake exception_t.exe -f makefile.mk
  * Author:	zuohaitao
  * Date:	2010-02-13
  */
