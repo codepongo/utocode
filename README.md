@@ -25,6 +25,9 @@ it is only a storage some demos and documents are in it.
 	+ ExceptionReport
 		Catch excepption and make a minidump file, when execute in windows os crashes.
 
+	+ pragma.message.c
+		pragma message in cl(MS C/C++ complier)
+
 
 * cublog 
 	a python client script for [chinaunix blog](http://blog.chinaunix.net)
