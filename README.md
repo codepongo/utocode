@@ -29,6 +29,12 @@ it is only a storage some demos and documents are in it.
 * cublog 
 	a python client script for [chinaunix blog](http://blog.chinaunix.net)
 
+* tpyembedviml.vim
+	test that vim allows python script can embed in vimL(vim language)/
+
+	* cmpdir.py
+	compare two directories and print all different.
+
 * 3rdpart - the third library that i watch.
 
 	+ rapyd-tk
