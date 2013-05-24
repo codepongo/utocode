@@ -1,3 +1,7 @@
+# Visual Stdio
+*.suo
+*.ncb
+*.vcproj.*.user
 # Compiled Object files
 *.slo
 *.lo

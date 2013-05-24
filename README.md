@@ -40,4 +40,12 @@ it is only a storage some demos and documents are in it.
 		an open-source development environment specifically tailored 
 		for developing applications 
 		using Python, Tkinter and, optionally, Pmw. 
+
+	+ regexplib
+		http://bbs.chinaunix.net/forum.php?mod=viewthread&tid=810271
+		a simple regular library with C/c++
+		compatible with GNU regexp(GNU rx, regexp's regcomp)
+		support windows OS
+		source code is readability
+
 		
