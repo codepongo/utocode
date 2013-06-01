@@ -35,8 +35,11 @@ it is only a storage some demos and documents are in it.
 * tpyembedviml.vim
 	test that vim allows python script can embed in vimL(vim language)/
 
-	* cmpdir.py
+* cmpdir.py
 	compare two directories and print all different.
+
+* signinxiami.py
+	a python script for login xiami and signin,automatically.
 
 * 3rdpart - the third library that i watch.
 
