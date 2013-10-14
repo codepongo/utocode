@@ -28,6 +28,9 @@ it is only a storage some demos and documents are in it.
 	+ pragma.message.c
 		pragma message in cl(MS C/C++ complier)
 
+	+ cpuusage.cpp
+		the process's CPU usage.
+
 
 * cublog 
 	a python client script for [chinaunix blog](http://blog.chinaunix.net)
