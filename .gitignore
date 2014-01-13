@@ -3,6 +3,7 @@
 *.ncb
 *.vcproj.*.user
 Debug/
+Release/
 *.aps
 # Compiled Object files
 *.slo
