@@ -31,6 +31,9 @@ it is only a storage some demos and documents are in it.
 	+ cpuusage.cpp
 		the process's CPU usage.
 
+	+ independentmfc
+		independent MFC classes such as string, image, rect, time and so on
+
 
 * cublog 
 	a python client script for [chinaunix blog](http://blog.chinaunix.net)
@@ -43,6 +46,10 @@ it is only a storage some demos and documents are in it.
 
 * signinxiami.py
 	a python script for login xiami and signin,automatically.
+
+* kwarg.py
+	python magic argments
+
 
 * 3rdpart - the third library that i watch.
 
@@ -59,7 +66,5 @@ it is only a storage some demos and documents are in it.
 		compatible with GNU regexp(GNU rx, regexp's regcomp)
 		support windows OS
 		source code is readability
-
-		
 	+ httpproxy.py http proxy server
 	+ socks5.py socks5 proxy server
