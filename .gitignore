@@ -1,7 +1,9 @@
-# Visual Stdio
+# Visual Studio
 *.suo
 *.ncb
 *.vcproj.*.user
+Debug/
+*.aps
 # Compiled Object files
 *.slo
 *.lo
