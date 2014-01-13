@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "independentmfc", "independentmfc.vcproj", "{FDBB045B-5284-4329-A826-1702D435FAA6}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FDBB045B-5284-4329-A826-1702D435FAA6}.Debug|Win32.ActiveCfg = Debug|Win32
+		{FDBB045B-5284-4329-A826-1702D435FAA6}.Debug|Win32.Build.0 = Debug|Win32
+		{FDBB045B-5284-4329-A826-1702D435FAA6}.Release|Win32.ActiveCfg = Release|Win32
+		{FDBB045B-5284-4329-A826-1702D435FAA6}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
