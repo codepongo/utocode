@@ -53,7 +53,8 @@ it is only a storage some demos and documents are in it.
 * tuxlist
 	a link list implementation. it is like the linux kernel source code.
 
-
+* tsscanf.c
+	a test case. it tests the brackets of the function *sscanf* function controls a string.
 * 3rdpart - the third library that i watch.
 
 	+ rapyd-tk
