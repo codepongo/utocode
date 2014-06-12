@@ -7,6 +7,12 @@ it is only a storage some demos and documents are in it.
 
 * windows - the source can be used only in the windows os.
 
+	+ netaware.cpp
+		InternetGetConnectedState(wininet.dll)
+		GetAdaptersAddresses(iphlpapi.dll)
+		Network Location Awareness (NLA) in windows xp
+		Microsoft Windows Network List Manager (NLM)  in windows Vista and 7
+		both NLA and NLM include sync and async
 	+ ondesktop.cpp 
 		set console windows in the desktop, 
 		so when win+d the console window still can be show.
