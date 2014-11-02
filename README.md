@@ -78,3 +78,7 @@ it is only a storage some demos and documents are in it.
 		source code is readability
 	+ httpproxy.py http proxy server
 	+ socks5.py socks5 proxy server
+
+* mp3ideditor
+	a MP3 IDv2 information editor to edit IDv2 information of All mp3 files in a 
+dictory.

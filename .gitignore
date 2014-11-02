@@ -25,3 +25,7 @@ Release/
 
 #vim
 *.swp
+
+
+#x os system files
+.DS_Store
