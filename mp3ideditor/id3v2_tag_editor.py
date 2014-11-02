@@ -1,4 +1,5 @@
 #!/usr/bin/python
+# -*- coding: utf-8 -*-
 
 # License:  GPLv3 (GNU General Public License - version 3).
 # Disclaimer: Use at your own risk.
