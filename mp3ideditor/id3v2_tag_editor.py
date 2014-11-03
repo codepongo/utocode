@@ -21,6 +21,8 @@ import logging
 # Decoding with 'Unsynchronisation' flag is still enabled.
 unsynchronisation_in_encoding_enabled = False
 
+
+
 #class new_myModule3(object):
 class TagEditorID3v2Major3(object):
     "A ID3v2.3 tag editor"
@@ -950,6 +952,17 @@ class TagEditorID3v2Major4(TagEditorID3v2Major3):
         str_sz = chr(byte_0) + chr(byte_1) + chr(byte_2) + chr(byte_3)
         return str_sz
 
+class TagEditorID3v2Major2(TagEditorID3v2Major4):
+    "A ID3v2.2 tag editor it is a hack and is not supported for the real ID3v2.2"
+    def __init__(self, logger):
+        super(TagEditorID3v2Major2, self).__init__(logger)
+    def process(self, file_name, inp_buf, opts_dict, suffix):
+        self.major_ver = 4
+        self.tag_header = inp_buf[0:0+self.tag_header_sz]
+        self.decodeTagSz()
+        new_buf = b"".join([inp_buf[0:2], chr(self.major_ver), chr(0x00) * self.tag_sz, inp_buf[self.tag_header_sz+self.tag_sz:]])
+        return super(TagEditorID3v2Major2, self).process(file_name, new_buf, opts_dict, suffix)
+
 class TagEditorID3v2(object):
     "A generic wrapper for ID3v2 tag editor"
 
@@ -992,15 +1005,16 @@ class TagEditorID3v2(object):
         id3_identifier = tag_header[0:0+3]
         if id3_identifier != "ID3":
             return TagEditorID3v2Major4(self.logger) # Will create the header of the latest ID3v2
-
         major_ver = ord(tag_header[3])
-        if major_ver == 3:
+        if major_ver == 2:
+            instance = TagEditorID3v2Major2(self.logger)
+        elif major_ver == 3:
             instance = TagEditorID3v2Major3(self.logger)
         elif major_ver == 4:
             instance = TagEditorID3v2Major4(self.logger)
         else: # others
-            instance = None
-            self.logger.critical("Unsupported ID3v2 Major Ver: %d" % major_ver)
+                instance = None
+                self.logger.critical("Unsupported ID3v2 Major Ver: %d" % major_ver)
         return instance
 
     def wrapper(self, args):
