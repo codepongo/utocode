@@ -16,6 +16,7 @@ def main(argv):
         for i in xrange(len(filenames)):
             if '.mp3' == os.path.splitext(filenames[i])[1]:
                 inp_file = os.path.join(dirpath, filenames[i])
+                print inp_file
                 paramters = [];
                 #paramters.append('-v')
                 paramters.append('-a')
