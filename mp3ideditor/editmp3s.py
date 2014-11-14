@@ -11,7 +11,13 @@ def main(argv):
     if d[-1] == os.sep:
         d = d[:-1]
     d = d[(d.rfind(os.sep))+1:]
-    artist, album = d.split(' - ')
+    if len(argv) == 3:
+        artist, album = argv[1], argv[2]
+        if sys.platform == 'win32':
+            artist = artist.decode('gbk').encode('utf-8')
+            album = album.decode('gbk').encode('utf-8')
+    else:
+        artist, album = d.split(' - ')
     for dirpath, dirname, filenames in os.walk(argv[0]):
         for i in xrange(len(filenames)):
             if '.mp3' == os.path.splitext(filenames[i])[1]:
