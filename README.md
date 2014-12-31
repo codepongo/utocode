@@ -87,3 +87,5 @@ dictory.
 
 * htmlmerger
 	merge the html files in one file.
+* sublist
+	calculate the maximum total of sub nonadjacent list
