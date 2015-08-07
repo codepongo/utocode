@@ -43,6 +43,8 @@ class ProxyHandler(BaseHTTPServer.BaseHTTPRequestHandler):
         print 'do_GET()'
         #netloc is a url like 'www.codepongo.com:80'
         (scheme, netloc, path, params, query, fragment) = urlparse.urlparse(self.path, 'http')
+        print urlparse.urlparse(self.path, 'http')
+        print self.headers.get('Host', "")
         if not netloc:
             netloc = self.headers.get('Host', "")
         if scheme != 'http' or not netloc or fragment:
@@ -119,4 +121,4 @@ def serving(port = 8000, protocol="HTTP/1.0", debug = False):
     httpd.serve_forever()
 
 if __name__ == '__main__':
-    serving(port=8000, debug=True)
+    serving(port=8001, debug=True)
