@@ -91,3 +91,6 @@ dictory.
 	calculate the maximum total of sub nonadjacent list
 * download.py
 	a downloader with the progress
+* the c programming language exercise
+	the c programming language 2nd edition exercise
+

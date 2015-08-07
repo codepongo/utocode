@@ -202,3 +202,7 @@ Release/
 
 #x os system files
 .DS_Store
+
+
+# the_c_programming_language
+the_c_programming_language_exercise/*.exe
