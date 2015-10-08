@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="256" verticalHuggingPriority="256" image="transparency-diamond.png" translatesAutoresizingMaskIntoConstraints="NO" id="uSd-cV-eq0">
+                                <rect key="frame" x="172" y="114" width="256" height="256"/>
+                                <animations/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="I am rich." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cUZ-sc-rXF">
+                                <rect key="frame" x="189" y="378" width="222" height="69"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="52"/>
+                                <color key="textColor" red="1" green="0.80000001190000003" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <animations/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="cUZ-sc-rXF" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="135-bH-Imf"/>
+                            <constraint firstItem="cUZ-sc-rXF" firstAttribute="top" secondItem="uSd-cV-eq0" secondAttribute="bottom" constant="8" symbolic="YES" id="OWg-yP-TCq"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="cUZ-sc-rXF" secondAttribute="bottom" constant="153" id="Vcz-JT-KQv"/>
+                            <constraint firstItem="uSd-cV-eq0" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="94" id="WZs-Ts-c4a"/>
+                            <constraint firstItem="uSd-cV-eq0" firstAttribute="centerX" secondItem="cUZ-sc-rXF" secondAttribute="centerX" id="oC2-6V-NgC"/>
+                            <constraint firstItem="cUZ-sc-rXF" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="yzh-zX-guV"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="245" y="315"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="transparency-diamond.png" width="256" height="256"/>
+    </resources>
+</document>
