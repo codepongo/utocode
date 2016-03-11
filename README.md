@@ -42,6 +42,9 @@ it is only a storage some demos and documents are in it.
 	+ independentmfc
 		independent MFC classes such as string, image, rect, time and so on
 
+	+ tFlashWindow.c
+		a sample for FlashWindow API.
+
 
 * cublog 
 	a python client script for [chinaunix blog](http://blog.chinaunix.net)
