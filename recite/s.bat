@@ -1,0 +1,10 @@
+@echo off
+if [%1] == [] goto:without_argument
+call python recite.py %1
+goto :exit
+:without_argument
+echo "call python recite.py 0"
+call python recite.py %1
+:exit
+
+
