@@ -4,8 +4,10 @@ utocode
 it is only a storage some demos and documents are in it.
 
 
-
+* recite - recite English words, python script in windows.
 * windows - the source can be used only in the windows os.
+	+ tGDITransformation the GDI tranformation sample
+	+ drvicon - register for change disk icon
 	+ ImageResize
 		A .NET Application that is coded by C# resizes the image.
 
