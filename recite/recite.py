@@ -105,7 +105,12 @@ def loop(v, save=True):
             unknow()
             unknowV.append(w)
             continue
-    return unknowV 
+    if len(unkonwV) == 0:
+        return
+
+    for u in unknowV:
+        print u['word']
+    return loop(unknowV, False)
 
 if __name__ == '__main__':
     start = 0
@@ -118,9 +123,4 @@ if __name__ == '__main__':
         save = True
 
     v = words()[start:]
-    while True:
-        v = loop(v, save)
-        print v
-        save = False
-        if len(v) == 0:
-            break
+    loop(v, save)
