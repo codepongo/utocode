@@ -6,6 +6,7 @@ it is only a storage some demos and documents are in it.
 
 * recite - recite English words, python script in windows.
 * windows - the source can be used only in the windows os.
+	+ crrunner chrome launcher to avoid to be rising hijack.
 	+ tGDITransformation the GDI tranformation sample
 	+ drvicon - register for change disk icon
 	+ ImageResize
