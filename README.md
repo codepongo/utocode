@@ -11,6 +11,7 @@ it is only a storage some demos and documents are in it.
 	+ drvicon - register for change disk icon
 	+ ImageResize
 		A .NET Application that is coded by C# resizes the image.
+	+ vtbl.cpp - test virtual function table in MSVC
 
 	+ netaware.cpp
 		InternetGetConnectedState(wininet.dll)
