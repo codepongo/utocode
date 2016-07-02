@@ -105,7 +105,7 @@ def loop(v, save=True):
             unknow()
             unknowV.append(w)
             continue
-    if len(unkonwV) == 0:
+    if len(unknowV) == 0:
         return
 
     for u in unknowV:
