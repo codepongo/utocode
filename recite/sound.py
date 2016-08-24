@@ -2,7 +2,13 @@ import urllib
 import urllib2
 import re
 import os
-import mp3play
+import sys
+if sys.platform == 'win32':
+    import mp3play
+elif sys.platform == 'darwin':
+    pass
+else:
+    pass
 import socket
 sound_dir = 'sound'
 def download(url, path):
@@ -25,7 +31,8 @@ def download(url, path):
             return False
         raise e
 def play(f):
-    #TODO: play mp3 in mac x os with 'afplay '
+    if sys.platform == 'darwin':
+        return os.system('afplay %s' % f)
     try:
         clip = mp3play.load(f)
         clip.play()
