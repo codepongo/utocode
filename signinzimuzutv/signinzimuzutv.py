@@ -5,7 +5,7 @@ import urllib2
 import sys
 import json
 import os
-cookie_file = 'cookie.txt'
+cookie_file = os.path.join(os.path.split(os.path.realpath(__file__))[0], 'cookie.txt')
 def login(email, password):
     cookie = cookielib.LWPCookieJar(cookie_file)
     opener = poster.streaminghttp.register_openers()
@@ -20,9 +20,9 @@ def login(email, password):
     rep = urllib2.urlopen(req).read()
     cookie.save()
     return json.loads(rep)['info']
-def sign():
+def sign(referer):
     req = urllib2.Request('http://www.zimuzu.tv/user/sign')
-    req.add_header('Referer', 'http://www.zimuzu.tv/user/sign')
+    req.add_header('Referer', referer)
     req.add_header('Host', 'www.zimuzu.tv')
     rep = urllib2.urlopen(req).read()
     start = rep.find('<div class="a2 tc">')
@@ -38,6 +38,7 @@ def logout():
 
 if __name__ == '__main__':
     print login(sys.argv[1], sys.argv[2])
-    print sign()
+    sign('http://www.zimuzu.tv/user/login')
+    print sign('http://www.zimuzu.tv/user/sign')
     print logout()
-    os.remove(os.path.join(os.path.split(os.path.realpath(__file__))[0], cookie_file))
+    os.remove(cookie_file)
