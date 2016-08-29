@@ -5,6 +5,7 @@ import urllib2
 import sys
 import json
 import os
+import time
 cookie_file = os.path.join(os.path.split(os.path.realpath(__file__))[0], 'cookie.txt')
 def login(email, password):
     cookie = cookielib.LWPCookieJar(cookie_file)
@@ -38,7 +39,6 @@ def logout():
 
 if __name__ == '__main__':
     print login(sys.argv[1], sys.argv[2])
-    sign('http://www.zimuzu.tv/user/login')
-    print sign('http://www.zimuzu.tv/user/sign')
+    print sign('http://www.zimuzu.tv/user/user')
     print logout()
     os.remove(cookie_file)
