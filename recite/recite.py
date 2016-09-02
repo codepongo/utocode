@@ -8,6 +8,25 @@ import sound
 import datetime
 import phonetic_with_bing as phonetic
 
+def learning(unknowV):
+    print ''
+    print len(unknowV)
+    for ww in unknowV:
+        print ww['word'],
+    print ''
+    while True:
+        i = raw_input('>')
+        if i == ',quit':
+            break
+        elif i[0] == ',':
+            for w in unknowV:
+                if w['word'] == i[1:]:
+                    sound.sound(i[1:])
+                    print '%s\t /%s/ %s' % (w['word'], w['phonetic'][1:-1], w['translation'])
+        else:
+            continue
+    print ''
+
 def words(folder='vocabulary'):
     vocabulary = []
     for f in os.listdir(folder):
@@ -26,36 +45,35 @@ def words(folder='vocabulary'):
                 vocabulary.append(w)
     return vocabulary
 def exit():
-    print 'do you want to exit? (Y)es/(n)o'
+    print '\ndo you want to exit? (Y)es/(n)o'
     if 'Y' == getch.getch():
         sys.exit(0)
 def repeat(word):
     while True:
         sound.sound(word)
         c = getch.getch()
-        if '\x1b' == c:
-            exit()
-        elif '3' == c:
+        if '3' == c:
             continue
-        else:
-            if 0 == ord(c): #Fun
-                getch.getch()
-            elif 79 == ord(c): #end
-                getch.getch()
-            elif 80 == ord(c): #down
-                getch.getch()
-            elif 81 == ord(c): #PageDown
-                getch.getch()
-            else:
-                pass
-                #print 'input:', ord(c), 
-            break
+        break
+
+    return c
+def reply(c):
+    if '\x1b' == c:
+        exit()
+    elif 0 == ord(c): #Fun
+        getch.getch()
+    elif 79 == ord(c): #end
+        getch.getch()
+    elif 80 == ord(c): #down
+        getch.getch()
+    elif 81 == ord(c): #PageDown
+        getch.getch()
+    else:
+        pass
     return c
 
 def unknow():
     print'[x]',
-    if '\x1b' == getch.getch():
-        exit()
     print ''
 
 def loop(v, save=True):
@@ -75,33 +93,21 @@ def loop(v, save=True):
                 f.write(line.replace('\r', ''))
 
         print '[%d(%d)/%d]' % (times, times+len(unknowV), count),
-        c = repeat(word)
+        c = reply(repeat(word))
         if 'l' == c:
-            print ''
-            print len(unknowV)
-            for ww in unknowV:
-                print ww['word'],
-                if ww['word'] == word:
-                    break
-            print ''
+            learning(unknowV)
             print '[%d(%d)/%d]' % (times, times+len(unknowV), count),
-            c = repeat(word)
+            c = reply(repeat(word))
         print '%s ' % (w['phonetic']),
-        repeat(word)
+        c = reply(repeat(word))
         print word,
-        c = repeat(word)
-        if '\x1b' == c:
-            exit()
+        c = reply(repeat(word))
         print translation[:-2],
+        c = reply(repeat(word))
         if '1' == c:
-            c = getch.getch()
-            if '1' == c:
-                print '[o]'
-            else:
-                unknow()
-                unknowV.append(w)
+            print '[o]'
             continue
-        if '2' == c:
+        else:
             unknow()
             unknowV.append(w)
             continue
