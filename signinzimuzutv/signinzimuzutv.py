@@ -9,21 +9,21 @@ cookie_file = os.path.join(os.path.split(os.path.realpath(__file__))[0], 'cookie
 def login(email, password):
     cookie = cookielib.LWPCookieJar(cookie_file)
     opener = urllib2.build_opener()
-    urllib2.install_opener(opener)
     opener.add_handler(urllib2.HTTPCookieProcessor(cookie))
+    urllib2.install_opener(opener)
     req = urllib2.Request('http://www.zimuzu.tv/User/Login/ajaxLogin',
             urllib.urlencode({'account':email, 
                 'password':password, 
-                'remember':1,
-                'url_back':'http://www.zimuzu.tv/user/user'}))
+                'remember':0,
+                'url_back':'http://www.zimuzu.tv'}))
     req.add_header('Referer', 'http://www.zimuzu.tv/user/login')
     req.add_header('User-Agent', 'Mozilla/5.0 (Windows NT 6.3; Trident/7.0; rv:11.0) like Gecko')
     rep = urllib2.urlopen(req).read()
-    cookie.save()
+    cookie.save(cookie_file)
     return json.loads(rep)['info']
-def sign(referer):
+def status_of_sign():
     req = urllib2.Request('http://www.zimuzu.tv/user/sign')
-    req.add_header('Referer', referer)
+    req.add_header('Referer', 'http://www.zimuzu.tv/user/user')
     req.add_header('User-Agent', 'Mozilla/5.0 (Windows NT 6.3; Trident/7.0; rv:11.0) like Gecko')
     req.add_header('Host', 'www.zimuzu.tv')
     rep = urllib2.urlopen(req).read()
@@ -37,15 +37,13 @@ def sign(referer):
 def logout():
     rep = urllib2.urlopen(urllib2.Request('http://www.zimuzu.tv/user/logout/ajaxLogout')).read()
     return json.loads(rep)['info']
+def signin_and_info():
+    rep = urllib2.urlopen(urllib2.Request('http://www.zimuzu.tv/user/login/getCurUserTopInfo')).read()
+    return json.loads(rep)
 
 if __name__ == '__main__':
     print login(sys.argv[1], sys.argv[2])
-    time.sleep(5)
-    print sign('http://www.zimuzu.tv')
-    time.sleep(5)
-    print sign('http://www.zimuzu.tv/user/user')
-    time.sleep(5)
-    print sign('http://www.zimuzu.tv/user/sign')
-    time.sleep(5)
+    signin_and_info() #this is real sigin
+    print status_of_sign()
     print logout()
     os.remove(cookie_file)
