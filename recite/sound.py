@@ -31,6 +31,8 @@ def download(url, path):
             return False
         raise e
 def play(f):
+    if os.path.getsize(f) == 0:
+        return
     if sys.platform == 'darwin':
         return os.system('afplay %s' % f)
     try:
@@ -44,6 +46,8 @@ def play(f):
         pass
 
 def sound(w):
+    if w == '':
+        return
     if not os.path.exists(sound_dir):
         os.mkdir(sound_dir)
     urls = [
