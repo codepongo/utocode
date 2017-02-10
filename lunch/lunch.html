@@ -1,0 +1,166 @@
+<!doctype html>
+<head>
+<meta charset="utf-8" />
+<title>午餐计算器</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="apple-touch-icon-precomposed" sizes="57x57" href="soup.png" />
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="soup.png" />
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="soup.png" />
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="soup.png" />
+<link rel="Stylesheet" type="text/css" href="weui.min.css" />
+<script src="jquery-1.6.4.min.js"></script>
+<style>
+body {font-family:-apple-system-font,Helvetica Neue,Helvetica,sans-serif; border: 0px solid #ddd; padding: 5px; margin: 5px;}
+</style>
+</head>
+<body>
+<div class="weui-cells weui-cells_form">
+<div class="weui-cell">
+	<div class="weui-cells__title"><h1>订餐人<h1> </div>
+	<div class="weui-cell_bd">
+		<input class="weui-btn weui-btn_mini weui-btn_default" type="button" value="编辑" id="edit"/>
+	</div>
+</div>
+<div style="padding: 0px ;border-top: 1px solid #d9d9d9;" id="buyers">
+<div class="weui-cell" id="buyer">
+<div class="weui-cell__hd"><label class="weui-label" id="name">daimen</label></div>
+<div class="weui-cell__bd"><input id="pay" class="weui-input" type="text" placeholder="输入消费金额"></div>
+<div class="weui-cell__ft"><input class="weui-btn weui-btn_mini weui-btn_warn" type="button" value="删除" id="del"/></div>
+</div>
+<div class="weui-cell" id="buyer">
+<div class="weui-cell__hd"><label class="weui-label" id="name">哎呦我去～</label></div>
+<div class="weui-cell__bd"><input id="pay" class="weui-input" type="text" placeholder="输入消费金额"></div>
+<div class="weui-cell__ft"><input class="weui-btn weui-btn_mini weui-btn_warn" type="button" value="删除" id="del"/></div>
+</div>
+</div>
+<div id="new" class="weui-cell">
+<div class="weui-cell__bd"><input name="name" class="weui-input" type="text" placeholder="输入订餐人姓名"></div>
+<div class="weui-cell__ft">
+<input class="weui-btn weui-btn_mini weui-btn_primary" type="button" value="添加" id="save"/>
+</div>
+</div>
+<div class="weui-cell">
+	<div class="weui-cells__title">费用</div>
+</div>
+<div class="weui-cell">
+	<div class="weui-cell_hd"><label class="weui-label">配送费</label></div>
+<div class="weui-cell_bd"><input id="takeout" class="weui-input" type="text" placeholder="输入配送费用"></div></div>
+</div>
+<div class="weui-cell">
+	<div class="weui-cell_hd"><label class="weui-label">立减优惠</label></div>
+<div class="weui-cell_bd"><input id="reduct" class="weui-input" type="text" placeholder="输入立减优惠金额"></div></div>
+</div>
+<div class="weui-cell">
+	<div class="weui-cell__hd"><label class="weui-label">红包抵扣</label></div>
+<div class="weui-cell__bd"><input id="bonus" class="weui-input" type="text" placeholder="输入红包抵扣金额"></div></div>
+</div>
+<div style="margin:10px">
+<input class="weui-btn weui-btn_primary" type="button" value="计算" id="calculate" />
+</div>
+<script type="text/javascript">
+$(document).ready(function(){
+        $("#new").hide();
+        $('[id="del"]').each(function(i, n) {
+            $(n).hide();
+        });
+        $('[id="pay"]').each(function(i, n) {
+                $(n).show();
+            });
+        $('[id="del"]').each(function(i, n) {
+            $(this).click(function(){
+               $(this).parent().parent().remove();
+            });
+        });
+        $("#edit").click(function() {
+            if ($("#edit").val() == '编辑') {
+                $("#edit").val('完成');
+                $("#new").show();
+                $('[id="del"]').each(function(i, n) {
+                    $(n).show();
+                });
+                $('[id="pay"]').each(function(i, n) {
+                    $(n).hide();
+                });
+                $("input[name='name']").focus();
+            }
+            else {
+                commit();
+            }
+        })
+        $("#save").click(function() {
+            var name = $("input[name='name']").val();
+            var e = $('<div class="weui-cell" id="buyer"><div class="weui-cell_hd"><label class="weui-label" id="name">' + name +'</label></div><div class="weui-cell__bd"><input id="pay" class="weui-input" type="text" placeholder="输入消费金额"></div><div class="weui-cell__ft"><input class="weui-btn weui-btn_mini weui-btn_warn" type="button" value="删除" id="del"/></div></div>');
+            $('#buyers').append(e);
+            $('[id="del"]').each(function(i, n) {
+                $(this).click(function(){
+                   $(this).parent().parent().remove();
+                });
+            });
+            $('[id="pay"]').each(function(i, n) {
+                $(n).hide();
+            });
+            $("input[name='name']").val('');
+            $("input[name='name']").focus();
+        });
+        function commit() {
+            $("#new").hide();
+            $("#edit").val('编辑');
+            $('[id="del"]').each(function(i, n) {
+                $(n).hide();
+            });
+            $('[id="pay"]').each(function(i, n) {
+                $(n).show();
+            });
+        };
+        $('#calculate').click(function() {
+            $('#result').html('');
+            var takeout = $('#takeout').val();
+            if (!takeout) { takeout = 0.00; }
+            var reduct = $('#reduct').val();
+            if (!reduct) { reduct = 0.00; }
+            var bonus = $('#bonus').val();
+            if (!bonus) { bonus = 0.00; }
+            var pay = $('div#pay').val();
+            if (!pay) { pay = 0.00; }
+            console.log('takeout:' + takeout)
+            console.log('reduct:' + reduct)
+            console.log('bonus:' + bonus)
+            var buyers = [];
+            $('[id="buyer"]').each(function(i, n) {
+                var k = $(n).find('#name').html();
+                var v = $(n).find('#pay').val();
+                buyers[k] = v;
+            });
+            console.log(buyers);
+            var total = 0.00;
+            for (k in buyers) {
+                total += Number(buyers[k]);
+            }
+            total += Number(takeout);
+            var discount = Number(reduct) + Number(bonus);
+            console.log('total:' + total);
+            console.log('discount:' + discount);
+            console.log('off:' + discount / total);
+            var innerHTML = '';
+            var text = '';
+            for (k in buyers) {
+                 var p = buyers[k];
+                 buyers[k] -= buyers[k] * discount / total;
+                 console.log(k + " saved ￥" + buyers[k] * discount / total);
+                 innerHTML += '<div class="weui-cell" id="buyer"><div class="weui-cell_hd"><label class="weui-label" id="name">@' + k +'</label></div><div class="weui-cell_bd">' +  buyers[k].toString().substring(0, buyers[k].toString().indexOf('.') + 3) + '</div></div></div>'
+                 text += '@'+ k + ': ' + buyers[k] + '\n';
+            }
+            innerHTML += '<div class="weui-cell"><div class="weui-cell__hd"><label class="weui-label">微信消息</label></div><textarea id="description" class="weui-textarea" rows="10">'+ text + '</textarea></div>'
+            $('#result').html(innerHTML);
+        });
+
+})
+</script>
+<div class="weui-cells weui-cells_form">
+	<div class="weui-cell"><div class="weui-cells__title"><h1>实付</h1></div></div></div>
+<div id="result" />
+<footer>
+</footer>
+</body>
+</html>
+
