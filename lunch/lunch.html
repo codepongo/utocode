@@ -133,22 +133,25 @@ $(document).ready(function(){
             });
             console.log(buyers);
             var total = 0.00;
+
             for (k in buyers) {
                 total += Number(buyers[k]);
             }
-            total += Number(takeout);
+            //total += Number(takeout);
             var discount = Number(reduct) + Number(bonus);
             console.log('total:' + total);
             console.log('discount:' + discount);
             console.log('off:' + discount / total);
+            console.log('takeoff_:' + takeout / Object.keys(buyers).length);
             var innerHTML = '';
             var text = '';
             for (k in buyers) {
                  var p = buyers[k];
-                 buyers[k] -= buyers[k] * discount / total;
+                 buyers[k] -= (buyers[k] * discount / total)
+                 buyers[k] += (Number(takeout) / Object.keys(buyers).length);
                  console.log(k + " saved ￥" + buyers[k] * discount / total);
                  innerHTML += '<div class="weui-cell" id="buyer"><div class="weui-cell_hd"><label class="weui-label" id="name">@' + k +'</label></div><div class="weui-cell_bd">' +  buyers[k].toString().substring(0, buyers[k].toString().indexOf('.') + 3) + '</div></div></div>'
-                 text += '@'+ k + ': ' + buyers[k] + '\n';
+                 text += '@'+ k + ': ' + buyers[k].toString().substring(0, buyers[k].toString().indexOf('.') + 3) + '\n';
             }
             innerHTML += '<div class="weui-cell"><div class="weui-cell__hd"><label class="weui-label">微信消息</label></div><textarea id="description" class="weui-textarea" rows="10">'+ text + '</textarea></div>'
             $('#result').html(innerHTML);
