@@ -31,6 +31,7 @@ if __name__ == '__main__':
             'r.bat',
             'review.bat',
             's.bat',
+            'zuohaitao_com_word.py',
     ]
     for e in excutes:
         shutil.copy(e, out)

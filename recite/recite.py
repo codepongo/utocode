@@ -7,18 +7,26 @@ import sys
 import sound
 import datetime
 import phonetic_with_bing as phonetic
-
+import zuohaitao_com_word
+book = 'zuohaitao.com/word.html'
 def learning(unknowV):
+    def all():
+        for ww in unknowV:
+            print ww['word'],
+        print ''
     print ''
     print len(unknowV)
-    for ww in unknowV:
-        print ww['word'],
-    print ''
+    all()
     while True:
         i = raw_input('>')
-        if i == ',quit':
+        if i == '':
+            continue
+        if i == ',quit'or i == ',q':
             break
-        elif i[0] == ',':
+        if i == ',l':
+            all()
+            continue
+        if i[0] == ',':
             for w in unknowV:
                 if w['word'] == i[1:]:
                     sound.sound(i[1:])
@@ -28,21 +36,38 @@ def learning(unknowV):
     print ''
 
 def words(folder='vocabulary'):
+    global book
+    if -1 != book.find('zuohaitao.com/word.html'):
+        book = zuohaitao_com_word.fetch()
+    folder = os.path.join(book, folder)
+    sound.sound_dir = os.path.join(book, 'sound')
     vocabulary = []
     for f in os.listdir(folder):
         if os.path.splitext(f)[1] != '.txt':
             continue
         with open(os.path.join(folder, f) , 'rb') as f:
             for line in f.readlines():
-                word, t = line.split('\t ')
+                if line == '\r\n':
+                    continue
+                word = ''
+                t = ''
+                try:
+                    word, t = line.split('\t ')
+                except:
+                    print f
+                    print line
                 w = {}
                 w['word'] = word
                 w['translation'] = t
                 sep = t.find('/ ') 
                 if sep != -1:
                     w['phonetic'] = '/' + t[0:sep].replace('/', '') + '/'
-                    w['translation'] = t[sep+len('/ '):]
-                vocabulary.append(w)
+                    try:
+                        w['translation'] = t[sep+len('/ '):].decode('utf8')
+                    except:
+                        w['translation'] = t[sep+len('/ '):]
+                if w['word'] != '':
+                    vocabulary.append(w)
     return vocabulary
 def exit():
     print '\ndo you want to exit? (Y)es/(n)o'
@@ -121,12 +146,11 @@ def loop(v, save=True):
 if __name__ == '__main__':
     start = 0
     save = False
-    if len(sys.argv) >= 1:
+    if len(sys.argv) > 1:
         try:
             start = int(sys.argv[1])
         except:
             start = 0
         save = True
-
     v = words()[start:]
     loop(v, save)

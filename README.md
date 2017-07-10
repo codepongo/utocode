@@ -3,7 +3,8 @@ utocode
 
 it is only a storage some demos and documents are in it.
 
-
+* cs - C# demo
+  + zlib for .NET 
 * recite - recite English words, python script in windows.
 * windows - the source can be used only in the windows os.
 	+ crrunner chrome launcher to avoid to be rising hijack.
