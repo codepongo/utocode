@@ -1,0 +1,144 @@
+body 
+{
+	margin:auto;
+	font-size:14px;
+	text-align:center;
+	background:;
+	margin:0;
+}
+a:link
+{
+	color:#006699;
+	text-decoration:none;
+}
+a:visited
+{
+	color:#002639;
+	text-decoration:none;
+}
+a:hover
+{
+	color:#7FA1AF;
+	text-decoration:underline;
+}
+
+H3 
+{
+	CLEAR: left;
+	MARGIN: 0px; 
+	FONT: 18px Verdana, Helvetica, Arial, sans-serif;
+	font-weight:bold;
+	COLOR: black;
+	PADDING-TOP: 0.5em;
+	BORDER-BOTTOM: #000000 1px solid;
+}
+HR
+{
+	color:#CCCCCC;
+	width:775px;
+	height:1px;
+}
+
+
+
+
+
+/*页面层容器*/
+#container
+{
+	margin:auto;
+	width:auto;
+	margin:10px;
+	background:#FFFFFF;
+}
+
+/*页面头部*/
+#banner 
+{
+	margin:auto;
+	margin-top:10px;
+	border:0px solid #CCCCCC;
+	text-align:left;
+	width:775px;
+	height:117px;
+	background:url(../image/banner.jpg) no-repeat;
+}
+
+/*拦目*/
+#menu
+{
+}
+#menu A. 
+{
+}
+#menu SPAN 
+{
+}
+#menu A:link 
+{
+}
+#menu A:visited 
+{
+	TEXT-DECORATION: none;
+}
+#menu img
+{
+	border:0;
+}
+
+/*页面主体*/
+#pagebody 
+{
+	margin:auto;
+	width:800px;
+	/*margin:0;*/
+	/*padding:0;*/
+	/*background:#FFFFFF*/;
+	/*text-align:center*/;
+}
+/*以下为二级模块*/
+/*
+#logo 
+{
+	margin:0;
+	width:775px;
+	height:80px;
+	text-align:right;
+	font-size:14;
+	color:#CC9966;
+	font-weight:bold;
+	background:url(/images/logo.gif) 5px 5px no-repeat;
+}
+*/
+/* height:240px; /*设定高度*/
+/* border-bottom:5px solid #EFEFEF; /*画一条浅灰色实线*/
+/* clear:both /*清除浮动*/
+/*}
+*/
+
+#sidebar {
+ width:160px; /*设定宽度*/
+ text-align:left; /*文字左对齐*/
+ float:left; /*浮动居左*/
+ clear:left; /*不允许左侧存在浮动*/
+ overflow:hidden; /*超出宽度部分隐藏*/
+ margin-left:10px;
+}
+
+/*#mainbody 
+{
+ text-align:center;
+ float:right; /*浮动居右*/
+ /*clear:right; /*不允许右侧存在浮动*/
+/* margin-right:10px;
+ overflow:hidden;
+}
+*/
+
+/*页面底部*/
+#footer 
+{
+	margin:auto;
+	width:800px;
+	margin:0;
+}
